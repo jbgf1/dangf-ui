@@ -79,4 +79,4 @@ pnpm test:pack
 
 ## License and origin
 
-MIT © jbgf. See [ORIGIN.md](./ORIGIN.md) for extraction provenance and [LICENSE](./LICENSE) for the license text.
+MIT © jbgf1. See [ORIGIN.md](./ORIGIN.md) for extraction provenance and [LICENSE](./LICENSE) for the license text.

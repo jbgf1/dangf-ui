@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Themeable React components for calm, accessible product interfaces.",
   "license": "MIT",
-  "author": "jbgf",
+  "author": "jbgf1",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -121,10 +121,10 @@
   "packageManager": "pnpm@10.25.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jbgf/dangf-ui.git"
+    "url": "git+https://github.com/jbgf1/dangf-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/jbgf/dangf-ui/issues"
+    "url": "https://github.com/jbgf1/dangf-ui/issues"
   },
-  "homepage": "https://jbgf.github.io/dangf-ui/"
+  "homepage": "https://jbgf1.github.io/dangf-ui/"
 }
