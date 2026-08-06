@@ -1,6 +1,6 @@
 # danGF UI
 
-Themeable, framework-agnostic React components extracted from the interaction patterns behind BreakToGoal. `dangf-ui` ships precompiled CSS, has no Tailwind requirement for consumers, and supports React 18.2 and React 19.
+Themeable, framework-agnostic React components extracted from the interaction patterns behind [BreakToGoal](https://breaktogoal.com/). `dangf-ui` ships precompiled CSS, has no Tailwind requirement for consumers, and supports React 18.2 and React 19.
 
 ## Install
 
@@ -79,4 +79,4 @@ pnpm test:pack
 
 ## License and origin
 
-MIT © jbgf1. See [ORIGIN.md](./ORIGIN.md) for extraction provenance and [LICENSE](./LICENSE) for the license text.
+MIT © jbgf1. See [LICENSE](./LICENSE) for the license text.

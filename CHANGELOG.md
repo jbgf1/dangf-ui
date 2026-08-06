@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+### Minor Changes
+
+- 修改 readme
+
 All notable changes to this project will be documented in this file. Version updates are managed with Changesets.
 
 ## 0.1.0
