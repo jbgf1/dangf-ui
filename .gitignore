@@ -4,6 +4,7 @@ storybook-static/
 .artifacts/
 .next/
 .DS_Store
+.npmrc
 *.log
 playwright-report/
 test-results/
