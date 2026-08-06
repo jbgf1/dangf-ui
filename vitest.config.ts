@@ -32,8 +32,12 @@ export default defineConfig({
         plugins: [
           storybookTest({ configDir: resolve(import.meta.dirname, '.storybook') }),
         ],
+        optimizeDeps: {
+          include: ['@storybook/react-vite'],
+        },
         test: {
           name: 'storybook',
+          isolate: false,
           browser: {
             enabled: true,
             headless: true,
