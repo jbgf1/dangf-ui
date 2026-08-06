@@ -1,0 +1,10 @@
+node_modules/
+dist/
+storybook-static/
+.artifacts/
+.next/
+.DS_Store
+*.log
+playwright-report/
+test-results/
+fixtures/**/pnpm-lock.yaml

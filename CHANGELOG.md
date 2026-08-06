@@ -1,0 +1,10 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. Version updates are managed with Changesets.
+
+## 0.1.0
+
+- Extracted and redesigned the initial neutral component, overlay, pattern, media, and marketing modules.
+- Added the opt-in warm theme preset and precompiled, namespaced CSS.
+- Added React 18.2 and React 19 support with Vite and Next.js packed-package smoke fixtures.
+- Added Storybook documentation, browser interaction tests, axe checks, CI, Pages deployment, and Changesets release automation.
