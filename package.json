@@ -49,7 +49,7 @@
     "build:js": "vite build",
     "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --minify && node ./scripts/copy-theme.mjs",
     "build": "pnpm clean && pnpm build:js && pnpm build:css",
-    "dev": "vite",
+    "dev": "storybook dev -p 6006",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

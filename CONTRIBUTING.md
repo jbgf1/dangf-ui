@@ -6,7 +6,7 @@ Thank you for helping improve danGF UI.
 
 1. Install Node.js 20.19 or newer and pnpm 10.25.
 2. Run `pnpm install`.
-3. Run `pnpm storybook` for component development.
+3. Run `pnpm dev` to start Storybook for component development. The `pnpm storybook` command remains available as an equivalent alias.
 
 Keep components focused, preserve the `dgf` utility prefix and `--dgf-*` token namespace, and avoid adding consumer-facing Tailwind requirements. Public behavior should remain SSR-safe and work in both supported React majors.
 

@@ -64,7 +64,7 @@ Overlay primitives use Radix for focus trapping, Escape behavior, focus restorat
 
 ```sh
 pnpm install
-pnpm storybook
+pnpm dev
 pnpm lint
 pnpm typecheck
 pnpm test
@@ -72,6 +72,8 @@ pnpm build
 pnpm build-storybook
 pnpm test:pack
 ```
+
+`pnpm dev` starts Storybook for local component development. `pnpm storybook` remains available as an equivalent alias.
 
 `pnpm test:pack` builds a real npm tarball, installs it into both smoke fixtures, and builds those applications. See [CONTRIBUTING.md](./CONTRIBUTING.md) for the release workflow.
 
