@@ -1,6 +1,6 @@
 # danGF UI
 
-Themeable, framework-agnostic React components extracted from the interaction patterns behind [BreakToGoal](https://breaktogoal.com/). `dangf-ui` ships precompiled CSS, has no Tailwind requirement for consumers, and supports React 18.2 and React 19.
+Themeable, framework-agnostic React components extracted from the interaction patterns behind [decision maker](https://decisionmaker.online/). `dangf-ui` ships precompiled CSS, has no Tailwind requirement for consumers, and supports React 18.2 and React 19.
 
 ## Install
 
