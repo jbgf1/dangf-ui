@@ -15,6 +15,7 @@ import {
   Checkbox,
   FieldTip,
   Input,
+  KeycapButton,
   Progress,
   Skeleton,
   Slider,
@@ -44,6 +45,22 @@ export const Buttons: Story = {
       <Button variant="link">Link</Button>
       <Button disabled>Disabled</Button>
       <Button disabled><Spinner label="Saving" /> Saving</Button>
+    </div>
+  ),
+};
+
+export const KeycapButtons: Story = {
+  render: () => (
+    <div className="dgf:flex dgf:items-center dgf:gap-5">
+      <KeycapButton>Run</KeycapButton>
+      <KeycapButton size="sm">Save</KeycapButton>
+      <KeycapButton aria-label="Favorite" shape="circle" size="icon">
+        <CheckCircle2 />
+      </KeycapButton>
+      <KeycapButton aria-label="Favorited" aria-pressed shape="circle" size="icon" tone="accent">
+        <CheckCircle2 />
+      </KeycapButton>
+      <KeycapButton disabled>Disabled</KeycapButton>
     </div>
   ),
 };

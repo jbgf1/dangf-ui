@@ -8,6 +8,7 @@ import * as marketing from './patterns/marketing';
 describe('public source entries', () => {
   it('exposes the documented root modules', () => {
     expect(core).toHaveProperty('Button');
+    expect(core).toHaveProperty('KeycapButton');
     expect(core).toHaveProperty('Dialog');
     expect(core).toHaveProperty('ResponsivePopover');
   });

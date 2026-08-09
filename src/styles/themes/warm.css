@@ -21,4 +21,6 @@
   --dgf-shadow-sm: 0 1px 3px rgb(104 75 52 / 8%);
   --dgf-shadow-md: 0 6px 18px rgb(104 75 52 / 10%);
   --dgf-shadow-lg: 0 12px 24px rgb(104 75 52 / 12%);
+  --dgf-shadow-keycap: 0 10px 18px -12px rgb(104 75 52 / 62%),
+    0 4px 6px -5px rgb(104 75 52 / 52%);
 }

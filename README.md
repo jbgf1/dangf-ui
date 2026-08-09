@@ -38,7 +38,7 @@ The warm preset can also be activated with `data-dgf-theme="warm"`.
 
 | Import | Components |
 | --- | --- |
-| `dangf-ui` | Button, Card, Badge, Tag, Input, Textarea, Checkbox, Switch, Slider, Progress, Skeleton, Spinner, Tooltip, FieldTip, Dialog, ConfirmDialog, Drawer, ActionMenu, ResponsivePopover |
+| `dangf-ui` | Button, KeycapButton, Card, Badge, Tag, Input, Textarea, Checkbox, Switch, Slider, Progress, Skeleton, Spinner, Tooltip, FieldTip, Dialog, ConfirmDialog, Drawer, ActionMenu, ResponsivePopover |
 | `dangf-ui/patterns` | LoadingOverlay, EmptyState, Breadcrumb, SearchInput, Pagination, Coachmark, PropertyRow, SplitLayout, SplitDialog |
 | `dangf-ui/media` | ImageWithFallback, ImagePreviewDialog, ImageDropzone, VideoWithPoster |
 | `dangf-ui/patterns/marketing` | Section, SectionHeading, GlowCard, StepCard, CornerBadge |
@@ -46,6 +46,25 @@ The warm preset can also be activated with `data-dgf-theme="warm"`.
 | `dangf-ui/themes/warm.css` | Optional warm token preset |
 
 All public components expose precise prop types, accept `className`, and render stable `data-slot` attributes. Icons default to Lucide and icon-bearing APIs accept replacement React nodes.
+
+### Keycap button
+
+`KeycapButton` renders a layered, pressable control without requiring consumer-side Tailwind configuration. Use the rounded shape for text actions or the circle shape with the icon size for compact controls.
+
+```tsx
+import { Star } from 'lucide-react';
+import { KeycapButton } from 'dangf-ui';
+
+<KeycapButton>Run</KeycapButton>
+
+<KeycapButton aria-label="Save" shape="circle" size="icon">
+  <Star />
+</KeycapButton>
+
+<KeycapButton aria-label="Saved" aria-pressed shape="circle" size="icon" tone="accent">
+  <Star />
+</KeycapButton>
+```
 
 ## Next.js and Vite
 

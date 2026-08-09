@@ -10,6 +10,7 @@ describe('style contract', () => {
   it('uses namespaced design tokens and omits global preflight selectors', async () => {
     const css = await readFile(baseStylesPath, 'utf8');
     expect(css).toContain('--dgf-color-primary');
+    expect(css).toContain('--dgf-shadow-keycap');
     expect(css).toContain("prefix(dgf)");
     expect(css).not.toMatch(/(^|\n)\s*(html|body|\*)\s*\{/);
     expect(css).not.toContain('preflight.css');
