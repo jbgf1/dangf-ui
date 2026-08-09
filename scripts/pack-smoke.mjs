@@ -2,6 +2,7 @@ import { execFileSync } from 'node:child_process';
 import {
   existsSync,
   mkdirSync,
+  readFileSync,
   rmSync,
 } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -9,7 +10,13 @@ import { fileURLToPath } from 'node:url';
 
 const rootDirectory = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const artifactsDirectory = resolve(rootDirectory, '.artifacts');
-const tarballPath = resolve(artifactsDirectory, 'dangf-ui-0.1.0.tgz');
+const packageManifest = JSON.parse(
+  readFileSync(resolve(rootDirectory, 'package.json'), 'utf8'),
+);
+const packageTarballName = `${packageManifest.name
+  .replace(/^@/, '')
+  .replaceAll('/', '-')}-${packageManifest.version}.tgz`;
+const tarballPath = resolve(artifactsDirectory, packageTarballName);
 const fixtures = ['vite-react18', 'next-react19'];
 
 function run(arguments_, directory = rootDirectory) {
