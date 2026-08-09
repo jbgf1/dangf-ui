@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- 3035ea4: Responsive size props
+
+### Patch Changes
+
+- 2231905: Add the compact KeycapButton icon size and shared mobile-first responsive size
+  props for Button and KeycapButton.
+
 ## 0.3.0
 
 ### Minor Changes
