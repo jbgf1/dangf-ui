@@ -4,6 +4,12 @@
 
 ### Minor Changes
 
+- 434e94e: Add a themeable `KeycapButton` primitive with layered depth, press feedback, text and icon sizes, circular and rounded shapes, and neutral and accent tones.
+
+## 0.2.0
+
+### Minor Changes
+
 - 修改 readme
 
 All notable changes to this project will be documented in this file. Version updates are managed with Changesets.
