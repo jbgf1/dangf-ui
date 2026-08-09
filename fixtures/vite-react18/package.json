@@ -6,7 +6,7 @@
     "build": "tsc --noEmit && vite build"
   },
   "dependencies": {
-    "dangf-ui": "file:../../.artifacts/dangf-ui-0.1.0.tgz",
+    "dangf-ui": "file:../../.artifacts/dangf-ui.tgz",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

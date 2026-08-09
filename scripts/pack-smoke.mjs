@@ -3,6 +3,7 @@ import {
   existsSync,
   mkdirSync,
   readFileSync,
+  renameSync,
   rmSync,
 } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -17,6 +18,7 @@ const packageTarballName = `${packageManifest.name
   .replace(/^@/, '')
   .replaceAll('/', '-')}-${packageManifest.version}.tgz`;
 const tarballPath = resolve(artifactsDirectory, packageTarballName);
+const fixtureTarballPath = resolve(artifactsDirectory, 'dangf-ui.tgz');
 const fixtures = ['vite-react18', 'next-react19'];
 
 function run(arguments_, directory = rootDirectory) {
@@ -34,6 +36,7 @@ run(['pack', '--pack-destination', artifactsDirectory]);
 if (!existsSync(tarballPath)) {
   throw new Error(`Expected package tarball at ${tarballPath}`);
 }
+renameSync(tarballPath, fixtureTarballPath);
 
 for (const fixture of fixtures) {
   const fixtureDirectory = resolve(rootDirectory, 'fixtures', fixture);
