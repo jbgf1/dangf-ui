@@ -33,4 +33,22 @@ describe('KeycapButton', () => {
     expect(button).toHaveClass('dgf:rounded-full');
     expect(button).toHaveClass('dgf:bg-[var(--dgf-color-accent)]');
   });
+
+  it('keeps a full touch target while rendering a compact icon keycap', () => {
+    render(
+      <KeycapButton aria-label="Save" shape="circle" size="icon-compact">
+        <svg aria-hidden="true" />
+      </KeycapButton>,
+    );
+
+    const button = screen.getByRole('button', { name: 'Save' });
+    const base = button.querySelector('[data-slot="keycap-button-base"]');
+    const face = button.querySelector('[data-slot="keycap-button-face"]');
+    const content = button.querySelector('[data-slot="keycap-button-content"]');
+
+    expect(button).toHaveClass('dgf:size-11');
+    expect(base).toHaveClass('dgf:inset-0.5');
+    expect(face).toHaveClass('dgf:inset-x-0.5');
+    expect(content).toHaveClass('dgf:[&_svg]:size-[18px]');
+  });
 });

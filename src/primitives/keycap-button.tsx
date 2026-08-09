@@ -15,6 +15,7 @@ const keycapButtonVariants = cva(
         md: 'dgf:h-11 dgf:min-w-11 dgf:text-sm',
         lg: 'dgf:h-13 dgf:min-w-13 dgf:text-base',
         icon: 'dgf:size-11',
+        'icon-compact': 'dgf:size-11 dgf:bg-transparent! dgf:shadow-none!',
       },
       shape: {
         rounded: 'dgf:rounded-[var(--dgf-radius-md)]',
@@ -35,10 +36,40 @@ const keycapButtonVariants = cva(
   },
 );
 
-const keycapFaceVariants = cva(
-  'dgf:pointer-events-none dgf:absolute dgf:inset-x-0 dgf:top-0 dgf:bottom-1 dgf:border dgf:transition-[bottom,filter] dgf:duration-[var(--dgf-motion-fast)] dgf:group-hover:brightness-[0.98] dgf:group-active:bottom-0',
+const keycapBaseVariants = cva(
+  'dgf:pointer-events-none dgf:absolute dgf:inset-0.5 dgf:shadow-[var(--dgf-shadow-keycap)] dgf:transition-shadow dgf:duration-[var(--dgf-motion-fast)] dgf:group-active:shadow-[var(--dgf-shadow-sm)] dgf:group-disabled:shadow-none',
   {
     variants: {
+      shape: {
+        rounded: 'dgf:rounded-[var(--dgf-radius-md)]',
+        circle: 'dgf:rounded-full',
+      },
+      tone: {
+        neutral: 'dgf:bg-[var(--dgf-color-border)]',
+        accent: 'dgf:bg-[var(--dgf-color-accent)]',
+      },
+    },
+    defaultVariants: {
+      shape: 'rounded',
+      tone: 'neutral',
+    },
+  },
+);
+
+const defaultKeycapFaceSize =
+  'dgf:inset-x-0 dgf:top-0 dgf:bottom-1 dgf:group-active:bottom-0';
+
+const keycapFaceVariants = cva(
+  'dgf:pointer-events-none dgf:absolute dgf:border dgf:transition-[bottom,filter] dgf:duration-[var(--dgf-motion-fast)] dgf:group-hover:brightness-[0.98]',
+  {
+    variants: {
+      size: {
+        sm: defaultKeycapFaceSize,
+        md: defaultKeycapFaceSize,
+        lg: defaultKeycapFaceSize,
+        icon: defaultKeycapFaceSize,
+        'icon-compact': 'dgf:inset-x-0.5 dgf:top-0.5 dgf:bottom-1.5 dgf:group-active:bottom-0.5',
+      },
       shape: {
         rounded: 'dgf:rounded-[var(--dgf-radius-md)]',
         circle: 'dgf:rounded-full',
@@ -51,6 +82,7 @@ const keycapFaceVariants = cva(
       },
     },
     defaultVariants: {
+      size: 'md',
       shape: 'rounded',
       tone: 'neutral',
     },
@@ -66,6 +98,7 @@ const keycapContentVariants = cva(
         md: 'dgf:px-4 dgf:[&_svg]:size-4',
         lg: 'dgf:px-5 dgf:[&_svg]:size-5',
         icon: 'dgf:px-0 dgf:[&_svg]:size-5',
+        'icon-compact': 'dgf:px-0 dgf:[&_svg]:size-[18px]',
       },
     },
     defaultVariants: {
@@ -87,10 +120,17 @@ export const KeycapButton = forwardRef<HTMLButtonElement, KeycapButtonProps>(
       className={cn(keycapButtonVariants({ className, shape, size, tone }))}
       {...props}
     >
+      {size === 'icon-compact' && (
+        <span
+          aria-hidden="true"
+          data-slot="keycap-button-base"
+          className={cn(keycapBaseVariants({ shape, tone }))}
+        />
+      )}
       <span
         aria-hidden="true"
         data-slot="keycap-button-face"
-        className={cn(keycapFaceVariants({ shape, tone }))}
+        className={cn(keycapFaceVariants({ shape, size, tone }))}
       />
       <span
         data-slot="keycap-button-content"

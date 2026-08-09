@@ -60,6 +60,9 @@ export const KeycapButtons: Story = {
       <KeycapButton aria-label="Favorited" aria-pressed shape="circle" size="icon" tone="accent">
         <CheckCircle2 />
       </KeycapButton>
+      <KeycapButton aria-label="Favorited" aria-pressed shape="circle" size="icon-compact" tone="neutral">
+        <CheckCircle2 />
+      </KeycapButton>
       <KeycapButton disabled>Disabled</KeycapButton>
     </div>
   ),
