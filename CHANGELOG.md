@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+
+### Minor Changes
+
+- 060062f: change demo link
+
 ## 0.2.0
 
 ### Minor Changes
