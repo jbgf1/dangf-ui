@@ -51,4 +51,28 @@ describe('KeycapButton', () => {
     expect(face).toHaveClass('dgf:inset-x-0.5');
     expect(content).toHaveClass('dgf:[&_svg]:size-[18px]');
   });
+
+  it('accepts a compact mobile size with a regular icon size from sm', () => {
+    render(
+      <KeycapButton
+        aria-label="Save"
+        shape="circle"
+        size={{ base: 'icon-compact', sm: 'icon' }}
+      >
+        <svg aria-hidden="true" />
+      </KeycapButton>,
+    );
+
+    const button = screen.getByRole('button', { name: 'Save' });
+    const base = button.querySelector('[data-slot="keycap-button-base"]');
+    const face = button.querySelector('[data-slot="keycap-button-face"]');
+    const content = button.querySelector('[data-slot="keycap-button-content"]');
+
+    expect(button).toHaveClass('dgf:size-11');
+    expect(button).toHaveClass('dgf:sm:size-11');
+    expect(base).toHaveClass('dgf:inset-0.5');
+    expect(base).toHaveClass('dgf:sm:inset-0');
+    expect(face).toHaveClass('dgf:sm:inset-x-0');
+    expect(content).toHaveClass('dgf:sm:[&_svg]:size-5');
+  });
 });

@@ -11,6 +11,7 @@ describe('public source entries', () => {
     expect(core).toHaveProperty('KeycapButton');
     expect(core).toHaveProperty('Dialog');
     expect(core).toHaveProperty('ResponsivePopover');
+    expect(core).toHaveProperty('breakpoints');
   });
 
   it('keeps patterns, media, and marketing in dedicated entries', () => {

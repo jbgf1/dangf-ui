@@ -6,6 +6,20 @@ import {
 } from 'react';
 
 import { cn } from '../internal/cn';
+import {
+  getResponsiveBaseValue,
+  resolveResponsiveClassNames,
+  type ResponsiveValue,
+} from '../responsive';
+
+const buttonSizeClassNames = {
+  sm: 'dgf:h-8 dgf:rounded-[var(--dgf-radius-sm)] dgf:px-3 dgf:text-xs',
+  md: 'dgf:h-10 dgf:rounded-[var(--dgf-radius-md)] dgf:px-4 dgf:text-sm',
+  lg: 'dgf:h-12 dgf:rounded-[var(--dgf-radius-md)] dgf:px-6 dgf:text-base',
+  icon: 'dgf:size-10 dgf:rounded-[var(--dgf-radius-md)]',
+} as const;
+
+export type ButtonSize = keyof typeof buttonSizeClassNames;
 
 const buttonVariants = cva(
   'dgf:inline-flex dgf:cursor-pointer dgf:items-center dgf:justify-center dgf:gap-2 dgf:whitespace-nowrap dgf:font-medium dgf:transition dgf:duration-150 dgf:focus-visible:outline-none dgf:focus-visible:ring-2 dgf:focus-visible:ring-[var(--dgf-color-accent)] dgf:focus-visible:ring-offset-2 dgf:disabled:pointer-events-none dgf:disabled:opacity-50 dgf:[&_svg]:pointer-events-none dgf:[&_svg]:size-4 dgf:[&_svg]:shrink-0',
@@ -25,12 +39,7 @@ const buttonVariants = cva(
         link:
           'dgf:bg-transparent dgf:text-[var(--dgf-color-primary)] dgf:underline-offset-4 dgf:hover:underline',
       },
-      size: {
-        sm: 'dgf:h-8 dgf:rounded-[var(--dgf-radius-sm)] dgf:px-3 dgf:text-xs',
-        md: 'dgf:h-10 dgf:rounded-[var(--dgf-radius-md)] dgf:px-4 dgf:text-sm',
-        lg: 'dgf:h-12 dgf:rounded-[var(--dgf-radius-md)] dgf:px-6 dgf:text-base',
-        icon: 'dgf:size-10 dgf:rounded-[var(--dgf-radius-md)]',
-      },
+      size: buttonSizeClassNames,
     },
     defaultVariants: {
       variant: 'primary',
@@ -39,20 +48,28 @@ const buttonVariants = cva(
   },
 );
 
+type ButtonVariantProps = VariantProps<typeof buttonVariants>;
+
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+    Omit<ButtonVariantProps, 'size'> {
   asChild?: boolean;
+  size?: ResponsiveValue<ButtonSize> | null | undefined;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ asChild = false, className, size, variant, ...props }, ref) => {
     const Component = asChild ? Slot : 'button';
+    const baseSize = getResponsiveBaseValue(size, 'md');
+
     return (
       <Component
         ref={ref}
         data-slot="button"
-        className={cn(buttonVariants({ className, size, variant }))}
+        className={cn(
+          buttonVariants({ className, size: baseSize, variant }),
+          resolveResponsiveClassNames(size, buttonSizeClassNames),
+        )}
         {...props}
       />
     );

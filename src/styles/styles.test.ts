@@ -3,6 +3,8 @@ import { resolve } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
+import { breakpoints } from '../responsive';
+
 const baseStylesPath = resolve(process.cwd(), 'src/styles/index.css');
 const warmStylesPath = resolve(process.cwd(), 'src/styles/themes/warm.css');
 
@@ -11,9 +13,14 @@ describe('style contract', () => {
     const css = await readFile(baseStylesPath, 'utf8');
     expect(css).toContain('--dgf-color-primary');
     expect(css).toContain('--dgf-shadow-keycap');
+    expect(css).toContain('@source inline("dgf:{sm:,md:,lg:,xl:,2xl:}');
     expect(css).toContain("prefix(dgf)");
     expect(css).not.toMatch(/(^|\n)\s*(html|body|\*)\s*\{/);
     expect(css).not.toContain('preflight.css');
+
+    for (const [name, minWidth] of Object.entries(breakpoints)) {
+      expect(css).toContain(`--breakpoint-${name}: ${minWidth}`);
+    }
   });
 
   it('ships the warm theme as an opt-in adapter', async () => {

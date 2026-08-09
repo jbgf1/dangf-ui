@@ -66,6 +66,28 @@ import { KeycapButton } from 'dangf-ui';
 </KeycapButton>
 ```
 
+### Responsive size props
+
+`Button` and `KeycapButton` accept either a scalar `size` or a mobile-first
+responsive value. Unspecified breakpoints inherit the closest smaller value.
+The public breakpoints are `sm` (40rem), `md` (48rem), `lg` (64rem), `xl`
+(80rem), and `2xl` (96rem).
+
+```tsx
+<Button size={{ base: 'sm', md: 'lg' }}>Save</Button>
+
+<KeycapButton
+  aria-label="Save"
+  shape="circle"
+  size={{ base: 'icon-compact', sm: 'icon' }}
+>
+  <Star />
+</KeycapButton>
+```
+
+Responsive values are resolved to precompiled CSS classes. They do not use
+viewport JavaScript and do not require Tailwind CSS in the consuming app.
+
 ## Next.js and Vite
 
 Interactive build entries retain the `"use client"` directive. DOM access is deferred to effects and event handlers, so importing the package during server rendering is safe. CSS is precompiled: consumer projects do not need Tailwind or a Tailwind content configuration.

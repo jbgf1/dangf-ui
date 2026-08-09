@@ -2,6 +2,19 @@
 @import 'tailwindcss/utilities.css' prefix(dgf);
 @source '../**/*.{ts,tsx}';
 
+@theme {
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+}
+
+/* Keep runtime-composed responsive variant classes in the distributed CSS. */
+@source inline("dgf:{sm:,md:,lg:,xl:,2xl:}{h-8,h-9,h-10,h-11,h-12,h-13,min-w-9,min-w-11,min-w-13,size-10,size-11,px-0,px-3,px-4,px-5,px-6,text-xs,text-sm,text-base}");
+@source inline("dgf:{sm:,md:,lg:,xl:,2xl:}{rounded-[var(--dgf-radius-sm)],rounded-[var(--dgf-radius-md)],inset-0,inset-0.5,inset-x-0,inset-x-0.5,top-0,top-0.5,bottom-1,bottom-1.5,group-active:bottom-0,group-active:bottom-0.5}");
+@source inline("dgf:{sm:,md:,lg:,xl:,2xl:}{[&_svg]:size-4,[&_svg]:size-5,[&_svg]:size-[18px]}");
+
 :root {
   --dgf-color-canvas: #f7f7f8;
   --dgf-color-surface: #ffffff;

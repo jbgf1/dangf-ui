@@ -43,6 +43,7 @@ export const Buttons: Story = {
       <Button variant="ghost">Ghost</Button>
       <Button variant="danger">Danger</Button>
       <Button variant="link">Link</Button>
+      <Button size={{ base: 'sm', md: 'lg' }}>Responsive size</Button>
       <Button disabled>Disabled</Button>
       <Button disabled><Spinner label="Saving" /> Saving</Button>
     </div>
@@ -61,6 +62,13 @@ export const KeycapButtons: Story = {
         <CheckCircle2 />
       </KeycapButton>
       <KeycapButton aria-label="Favorited" aria-pressed shape="circle" size="icon-compact" tone="neutral">
+        <CheckCircle2 />
+      </KeycapButton>
+      <KeycapButton
+        aria-label="Responsive favorite"
+        shape="circle"
+        size={{ base: 'icon-compact', sm: 'icon' }}
+      >
         <CheckCircle2 />
       </KeycapButton>
       <KeycapButton disabled>Disabled</KeycapButton>
