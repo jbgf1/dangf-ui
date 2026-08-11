@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0
+
+### Minor Changes
+
+- 112f24d: Add a themeable native Select primitive with an inset customizable chevron and
+  an optional value-only change callback.
+- 112f24d: Add a chrome-free Button text variant whose hover treatment only changes the
+  label color.
+
 ## 0.4.0
 
 ### Minor Changes
