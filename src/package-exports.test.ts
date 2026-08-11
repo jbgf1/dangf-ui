@@ -9,6 +9,7 @@ describe('public source entries', () => {
   it('exposes the documented root modules', () => {
     expect(core).toHaveProperty('Button');
     expect(core).toHaveProperty('KeycapButton');
+    expect(core).toHaveProperty('Select');
     expect(core).toHaveProperty('Dialog');
     expect(core).toHaveProperty('ResponsivePopover');
     expect(core).toHaveProperty('breakpoints');

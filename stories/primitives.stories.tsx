@@ -17,6 +17,7 @@ import {
   Input,
   KeycapButton,
   Progress,
+  Select,
   Skeleton,
   Slider,
   Spinner,
@@ -41,6 +42,7 @@ export const Buttons: Story = {
       <Button variant="secondary">Secondary</Button>
       <Button variant="outline">Outline</Button>
       <Button variant="ghost">Ghost</Button>
+      <Button variant="text">Text</Button>
       <Button variant="danger">Danger</Button>
       <Button variant="link">Link</Button>
       <Button size={{ base: 'sm', md: 'lg' }}>Responsive size</Button>
@@ -104,11 +106,17 @@ export const BadgesAndTags: Story = {
 
 function InputExample() {
   const [value, setValue] = useState('Draft goal');
+  const [scope, setScope] = useState('future');
   return (
     <div className="dgf:grid dgf:max-w-md dgf:gap-3">
       <label htmlFor="title">Title</label>
       <Input id="title" value={value} onValueChange={setValue} />
       <Textarea aria-label="Notes" placeholder="Add notes" />
+      <label htmlFor="scope">Change scope</label>
+      <Select id="scope" value={scope} onValueChange={setScope}>
+        <option value="future">This and future</option>
+        <option value="all">Entire schedule</option>
+      </Select>
       <FieldTip tone="danger">A title is required before publishing.</FieldTip>
     </div>
   );
@@ -122,6 +130,8 @@ export const FormFields: Story = {
     await userEvent.clear(input);
     await userEvent.type(input, 'Plan launch');
     await expect(input).toHaveValue('Plan launch');
+    await userEvent.selectOptions(canvas.getByLabelText('Change scope'), 'all');
+    await expect(canvas.getByLabelText('Change scope')).toHaveValue('all');
   },
 };
 

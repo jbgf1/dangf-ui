@@ -38,7 +38,7 @@ The warm preset can also be activated with `data-dgf-theme="warm"`.
 
 | Import | Components |
 | --- | --- |
-| `dangf-ui` | Button, KeycapButton, Card, Badge, Tag, Input, Textarea, Checkbox, Switch, Slider, Progress, Skeleton, Spinner, Tooltip, FieldTip, Dialog, ConfirmDialog, Drawer, ActionMenu, ResponsivePopover |
+| `dangf-ui` | Button, KeycapButton, Card, Badge, Tag, Input, Textarea, Select, Checkbox, Switch, Slider, Progress, Skeleton, Spinner, Tooltip, FieldTip, Dialog, ConfirmDialog, Drawer, ActionMenu, ResponsivePopover |
 | `dangf-ui/patterns` | LoadingOverlay, EmptyState, Breadcrumb, SearchInput, Pagination, Coachmark, PropertyRow, SplitLayout, SplitDialog |
 | `dangf-ui/media` | ImageWithFallback, ImagePreviewDialog, ImageDropzone, VideoWithPoster |
 | `dangf-ui/patterns/marketing` | Section, SectionHeading, GlowCard, StepCard, CornerBadge |
@@ -46,6 +46,31 @@ The warm preset can also be activated with `data-dgf-theme="warm"`.
 | `dangf-ui/themes/warm.css` | Optional warm token preset |
 
 All public components expose precise prop types, accept `className`, and render stable `data-slot` attributes. Icons default to Lucide and icon-bearing APIs accept replacement React nodes.
+
+### Text button
+
+Use `variant="text"` for a button that keeps its native button semantics and
+focus treatment without rendering a border, background, shadow, or hover
+surface.
+
+```tsx
+<Button variant="text">Discard changes</Button>
+```
+
+### Select
+
+`Select` keeps native select semantics while replacing the browser arrow with a
+consistent inset chevron. Use `onValueChange` when only the selected value is
+needed, or the native `onChange` callback when the full event is required.
+
+```tsx
+import { Select } from 'dangf-ui';
+
+<Select defaultValue="future" onValueChange={setScope}>
+  <option value="future">This and future</option>
+  <option value="all">Entire schedule</option>
+</Select>
+```
 
 ### Keycap button
 

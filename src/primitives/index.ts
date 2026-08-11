@@ -6,6 +6,7 @@ export * from './field-tip';
 export * from './input';
 export * from './keycap-button';
 export * from './progress';
+export * from './select';
 export * from './skeleton';
 export * from './slider';
 export * from './spinner';

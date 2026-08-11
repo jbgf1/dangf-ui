@@ -4,6 +4,17 @@ import { describe, expect, it } from 'vitest';
 import { Button } from './button';
 
 describe('Button', () => {
+  it('renders a text variant without surface chrome', () => {
+    render(<Button variant="text">Discard changes</Button>);
+
+    const button = screen.getByRole('button', { name: 'Discard changes' });
+    expect(button).toHaveClass('dgf:border-0');
+    expect(button).toHaveClass('dgf:bg-transparent');
+    expect(button).toHaveClass('dgf:shadow-none');
+    expect(button).toHaveClass('dgf:hover:bg-transparent');
+    expect(button).toHaveClass('dgf:hover:text-[var(--dgf-color-text)]');
+  });
+
   it('keeps scalar size props backward compatible', () => {
     render(<Button size="sm">Save</Button>);
 

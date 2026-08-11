@@ -34,6 +34,8 @@ const buttonVariants = cva(
           'dgf:border dgf:border-[var(--dgf-color-border)] dgf:bg-[var(--dgf-color-surface)] dgf:text-[var(--dgf-color-text)] dgf:hover:bg-[var(--dgf-color-muted)]',
         ghost:
           'dgf:bg-transparent dgf:text-[var(--dgf-color-text)] dgf:hover:bg-[var(--dgf-color-muted)]',
+        text:
+          'dgf:border-0 dgf:bg-transparent dgf:text-[var(--dgf-color-text-muted)] dgf:shadow-none dgf:hover:bg-transparent dgf:hover:text-[var(--dgf-color-text)]',
         danger:
           'dgf:bg-[var(--dgf-color-danger)] dgf:text-white dgf:hover:brightness-95',
         link:
